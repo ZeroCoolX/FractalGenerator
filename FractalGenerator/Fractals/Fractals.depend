@@ -1,0 +1,29 @@
+# depslib dependency file v1.0
+1531699362 source:c:\users\mitinz\documents\development\udemy_cplusplusadvanced\fractal\fractalgenerator\fractals\main.cpp
+	<iostream>
+	"bitmap.h"
+
+1531699451 c:\users\mitinz\documents\development\udemy_cplusplusadvanced\fractal\fractalgenerator\fractals\bitmap.h
+	<string>
+	<cstdint>
+	<memory>
+	"pixel.h"
+	"bitmap_file_header.h"
+	"bitmap_info_header.h"
+
+1531698287 c:\users\mitinz\documents\development\udemy_cplusplusadvanced\fractal\fractalgenerator\fractals\pixel.h
+	<cstdint>
+
+1531695716 c:\users\mitinz\documents\development\udemy_cplusplusadvanced\fractal\fractalgenerator\fractals\bitmap_file_header.h
+	<cstdint>
+
+1531695757 c:\users\mitinz\documents\development\udemy_cplusplusadvanced\fractal\fractalgenerator\fractals\bitmap_info_header.h
+	<cstdint>
+
+1531699448 source:c:\users\mitinz\documents\development\udemy_cplusplusadvanced\fractal\fractalgenerator\fractals\bitmap.cpp
+	<iostream>
+	<fstream>
+	"bitmap.h"
+	"bitmap_file_header.h"
+	"bitmap_info_header.h"
+
