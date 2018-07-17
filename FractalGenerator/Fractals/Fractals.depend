@@ -1,6 +1,8 @@
 # depslib dependency file v1.0
-1531790905 source:c:\users\mitinz\documents\development\udemy_cplusplusadvanced\fractal\fractalgenerator\fractals\main.cpp
+1531792923 source:c:\users\mitinz\documents\development\udemy_cplusplusadvanced\fractal\fractalgenerator\fractals\main.cpp
 	<iostream>
+	<cstdint>
+	"mandelbrot.h"
 	"bitmap.h"
 
 1531699451 c:\users\mitinz\documents\development\udemy_cplusplusadvanced\fractal\fractalgenerator\fractals\bitmap.h
@@ -11,7 +13,7 @@
 	"bitmap_file_header.h"
 	"bitmap_info_header.h"
 
-1531698287 c:\users\mitinz\documents\development\udemy_cplusplusadvanced\fractal\fractalgenerator\fractals\pixel.h
+1531793838 c:\users\mitinz\documents\development\udemy_cplusplusadvanced\fractal\fractalgenerator\fractals\pixel.h
 	<cstdint>
 
 1531695716 c:\users\mitinz\documents\development\udemy_cplusplusadvanced\fractal\fractalgenerator\fractals\bitmap_file_header.h
@@ -26,4 +28,10 @@
 	"bitmap.h"
 	"bitmap_file_header.h"
 	"bitmap_info_header.h"
+
+1531792635 source:c:\users\mitinz\documents\development\udemy_cplusplusadvanced\fractal\fractalgenerator\fractals\mandelbrot.cpp
+	<complex>
+	"mandelbrot.h"
+
+1531793085 c:\users\mitinz\documents\development\udemy_cplusplusadvanced\fractal\fractalgenerator\fractals\mandelbrot.h
 
