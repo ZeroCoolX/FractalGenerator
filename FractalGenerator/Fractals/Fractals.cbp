@@ -37,6 +37,9 @@
 		<Unit filename="bitmap_file_header.h" />
 		<Unit filename="bitmap_info_header.h" />
 		<Unit filename="main.cpp" />
+		<Unit filename="mandelbrot.cpp" />
+		<Unit filename="mandelbrot.h" />
+		<Unit filename="pixel.h" />
 		<Extensions>
 			<code_completion />
 			<envvars />
