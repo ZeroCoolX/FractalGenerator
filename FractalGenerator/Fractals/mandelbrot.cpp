@@ -1,4 +1,5 @@
 #include<complex>
+#include <memory>
 #include<cstdint>
 using namespace std;
 
@@ -15,12 +16,17 @@ double mandelbrot::scale(double rawCoordinate, int sizeLimit, int xOffset){
     return (rawCoordinate - sizeLimit/2 - xOffset) * (2.0/SCALE_FACTOR);
 }
 
-uint8_t mandelbrot::colorizeIteration(int iteration){
-    // map to a color [0,1]
-    uint8_t color = (uint8_t)(256 * (double)iteration/mandelbrot::MAX_ITERATIONS);
-    // Since we defined color to be a uint8_t it will still work in terms of the program (355 inclusive)
-    color = color * color * color;
-    return color;
+double mandelbrot::colorizeIteration(int iteration, int totalIterations, unique_ptr<int[]> &histogram){
+    double colorHue = 0; // [0,1]
+    // sum up all the pixels that have less iterations than this one including this number of iterations
+    // As we move from pixels of a high number of iterations to a low number of iterations we calculate a color for each group of the
+    // particular number of iterations.
+    // Moving to the next group - we increase the number value of that color proportionately to the number of pixels that had the last number of iterations
+    for(int i = 0; i <= iteration; ++i){
+        // number between 0 and 1
+        colorHue += ((double)histogram[i])/totalIterations;
+    }
+    return colorHue;
 }
 
 int mandelbrot::getIteration(double x, double y){
