@@ -1,5 +1,7 @@
 #include <iostream>
 #include <cstdint>
+#include<memory>
+
 #include "pixel.h"
 #include "mandelbrot.h"
 #include "bitmap.h"
@@ -18,27 +20,34 @@ int main()
     double minVal = 9999;
     double maxVal = -9999;
 
-    // Make it all green!
+    // Histogram - stores the number of pixels that corresponds to each number of iterations
+    unique_ptr<int[]> histogram(new int[mandelbrot::MAX_ITERATIONS+1]{0});
+
     for(int y = 0; y < HEIGHT; ++y){
         for(int x = 0; x < WIDTH; ++x){
-            double xFractal = (x - WIDTH/2) * (2.0/WIDTH); // range from  [-400,399] then [-1, 0.9999999]
-            double yFractal = (y - HEIGHT/2) * (2.0/HEIGHT); // range from  [-300,299] then [-1, 0.9999999]
+            // Scale the given pixel coordinate to be within [-1,1)
+            double xFractal = mandelbrot::scale(x, WIDTH, 200); // range from  [-400,399] then [-1, 0.9999999]
+            double yFractal = mandelbrot::scale(y, HEIGHT); // range from  [-300,299] then [-1, 0.9999999]
 
-            int iterations = mandelbrot::getIterations(xFractal, yFractal);
+            // Calculate the iteration for this pixel
+            int iteration = mandelbrot::getIteration(xFractal, yFractal);
 
-            // map to a color [0,1]
-            uint8_t green = (uint8_t)(256 * (double)iterations/mandelbrot::MAX_ITERATIONS);
+            // Increment the index for this iteration
+            ++histogram[iteration];
+
+            // Colorize the iteration
+            uint8_t color = mandelbrot::colorizeIteration(iteration);
 
             // set the pixel
-            pixel currentPixel = {x, y, 0, green, 0};
+            pixel currentPixel = {x, y, 0, color, 0};
             fractalBitmap.setPixel(currentPixel);
 
             // always set min/max to the least/most x we've seen
-            if(green < minVal){
-                minVal = green;
+            if(color < minVal){
+                minVal = color;
             }
-            if(green > maxVal){
-                maxVal = green;
+            if(color > maxVal){
+                maxVal = color;
             }
         }
     }
