@@ -6,7 +6,7 @@
 #include "pixel.h"
 #include "mandelbrot.h"
 #include "bitmap.h"
-#include "zoom.h"
+#include "zoom_list.h"
 
 using namespace std;
 using namespace zerocoolsoftware;
@@ -24,15 +24,24 @@ int main()
     // Storing the number of iterations per pixel
     unique_ptr<int[]> fractal(new int[WIDTH*HEIGHT]{0});
 
+    zoom_list zoomList(WIDTH, HEIGHT);
+    zoomList.addZoom(zoom(WIDTH/2, HEIGHT/2, 4.0/WIDTH));
+    //zoomList.addZoom(zoom(307, HEIGHT - 189, 0.1));
+    //zoomList.addZoom(zoom(169, HEIGHT - 433, 0.1));
+    //zoomList.addZoom(zoom(409, HEIGHT - 294, 0.1));
+    //zoomList.addZoom(zoom(781, HEIGHT - 366, 0.1));
+    //zoomList.addZoom(zoom(381, HEIGHT - 320, 0.1));
+
+    int cnt = 0;
+
     // Store the number of iterations per pixel and build the histogram as well as scale
     for(int y = 0; y < HEIGHT; ++y){
         for(int x = 0; x < WIDTH; ++x){
-            // Scale the given pixel coordinate to be within [-1,1)
-            double xFractal = mandelbrot::scale(x, WIDTH, 200); // range from  [-400,399] then [-1, 0.9999999]
-            double yFractal = mandelbrot::scale(y, HEIGHT); // range from  [-300,299] then [-1, 0.9999999]
+            //system("CLS");
+            pair<double, double> coordinate = zoomList.doZoom(x, y);
 
             // Calculate the iteration for this pixel
-            int iteration = mandelbrot::getIteration(xFractal, yFractal);
+            int iteration = mandelbrot::getIteration(coordinate.first, coordinate.second);
 
             fractal[y*WIDTH + x] = iteration;
 

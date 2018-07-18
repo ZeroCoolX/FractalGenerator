@@ -1,5 +1,5 @@
 # depslib dependency file v1.0
-1531798901 source:c:\users\mitinz\documents\development\udemy_cplusplusadvanced\fractal\fractalgenerator\fractals\main.cpp
+1531879173 source:c:\users\mitinz\documents\development\udemy_cplusplusadvanced\fractal\fractalgenerator\fractals\main.cpp
 	<iostream>
 	<cstdint>
 	<memory>
@@ -7,7 +7,7 @@
 	"pixel.h"
 	"mandelbrot.h"
 	"bitmap.h"
-	"zoom.h"
+	"zoom_list.h"
 
 1531699451 c:\users\mitinz\documents\development\udemy_cplusplusadvanced\fractal\fractalgenerator\fractals\bitmap.h
 	<string>
@@ -39,9 +39,17 @@
 	<cstdint>
 	"mandelbrot.h"
 
-1531798982 c:\users\mitinz\documents\development\udemy_cplusplusadvanced\fractal\fractalgenerator\fractals\mandelbrot.h
+1531873773 c:\users\mitinz\documents\development\udemy_cplusplusadvanced\fractal\fractalgenerator\fractals\mandelbrot.h
 	<memory>
 	<cstdint>
 
 1531798889 c:\users\mitinz\documents\development\udemy_cplusplusadvanced\fractal\fractalgenerator\fractals\zoom.h
+
+1531878757 source:c:\users\mitinz\documents\development\udemy_cplusplusadvanced\fractal\fractalgenerator\fractals\zoom_list.cpp
+	"zoom_list.h"
+
+1531873230 c:\users\mitinz\documents\development\udemy_cplusplusadvanced\fractal\fractalgenerator\fractals\zoom_list.h
+	<vector>
+	<utility>
+	"zoom.h"
 
