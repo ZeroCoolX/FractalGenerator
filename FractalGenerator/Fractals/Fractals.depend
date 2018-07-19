@@ -1,16 +1,9 @@
 # depslib dependency file v1.0
-1531963587 source:c:\users\mitinz\documents\development\udemy_cplusplusadvanced\fractal\fractalgenerator\fractals\main.cpp
+1531973139 source:c:\users\mitinz\documents\development\udemy_cplusplusadvanced\fractal\fractalgenerator\fractals\main.cpp
 	<iostream>
-	<cstdint>
-	<memory>
-	<math.h>
-	<iostream>
-	"pixel.h"
-	"mandelbrot.h"
-	"bitmap.h"
-	"zoom_list.h"
+	<string>
+	"zoom.h"
 	"fractal_generator.h"
-	"rgb_color.h"
 
 1531885000 c:\users\mitinz\documents\development\udemy_cplusplusadvanced\fractal\fractalgenerator\fractals\bitmap.h
 	<string>
@@ -36,19 +29,19 @@
 	"bitmap_file_header.h"
 	"bitmap_info_header.h"
 
-1531960642 source:c:\users\mitinz\documents\development\udemy_cplusplusadvanced\fractal\fractalgenerator\fractals\mandelbrot.cpp
+1531964499 source:c:\users\mitinz\documents\development\udemy_cplusplusadvanced\fractal\fractalgenerator\fractals\mandelbrot.cpp
 	<complex>
 	<memory>
 	<cstdint>
 	"mandelbrot.h"
 
-1531960638 c:\users\mitinz\documents\development\udemy_cplusplusadvanced\fractal\fractalgenerator\fractals\mandelbrot.h
+1531972067 c:\users\mitinz\documents\development\udemy_cplusplusadvanced\fractal\fractalgenerator\fractals\mandelbrot.h
 	<memory>
 	<cstdint>
 
 1531882467 c:\users\mitinz\documents\development\udemy_cplusplusadvanced\fractal\fractalgenerator\fractals\zoom.h
 
-1531878757 source:c:\users\mitinz\documents\development\udemy_cplusplusadvanced\fractal\fractalgenerator\fractals\zoom_list.cpp
+1531966757 source:c:\users\mitinz\documents\development\udemy_cplusplusadvanced\fractal\fractalgenerator\fractals\zoom_list.cpp
 	"zoom_list.h"
 
 1531873230 c:\users\mitinz\documents\development\udemy_cplusplusadvanced\fractal\fractalgenerator\fractals\zoom_list.h
@@ -81,18 +74,24 @@
 	"zoom_list.h"
 	"bitmap.h"
 
-1531963489 source:c:\users\mitinz\documents\development\udemy_cplusplusadvanced\fractal\fractalgenerator\fractals\fractal_generator.cpp
+1531972442 source:c:\users\mitinz\documents\development\udemy_cplusplusadvanced\fractal\fractalgenerator\fractals\fractal_generator.cpp
+	<iostream>
+	<string>
+	<assert.h>
 	"fractal_generator.h"
+	"mandelbrot.h"
 
-1531963377 c:\users\mitinz\documents\development\udemy_cplusplusadvanced\fractal\fractalgenerator\fractals\fractal_generator.h
+1531969026 c:\users\mitinz\documents\development\udemy_cplusplusadvanced\fractal\fractalgenerator\fractals\fractal_generator.h
 	<string>
 	<memory>
+	<vector>
 	<math.h>
 	<iostream>
 	"zoom.h"
 	"zoom_list.h"
 	"bitmap.h"
 	"mandelbrot.h"
+	"rgb_color.h"
 
 1531963257 source:c:\users\mitinz\documents\development\udemy_cplusplusadvanced\fractal\fractalgenerator\fractals\rgb_color.cpp
 	"rgb_color.h"

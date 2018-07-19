@@ -29,7 +29,7 @@ double mandelbrot::colorizeIteration(int iteration, int totalIterations, unique_
     return colorHue;
 }
 
-int mandelbrot::getIteration(double x, double y){
+int mandelbrot::calculateIterationForPixel(double x, double y){
     // If ever gets higher than 2 it will escape to infinity
     complex<double> currentComplex = 0;
     // complex number for which we are testing whether or not its in the M-Set

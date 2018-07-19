@@ -16,7 +16,7 @@ public:
     mandelbrot();
     virtual ~mandelbrot();
 
-    static int getIteration(double x, double y);
+    static int calculateIterationForPixel(double x, double y);
     static double scale(double rawCoordinate, int sizeLimit, int xOffset=0);
     static double colorizeIteration(int iteration, int totalIterations, unique_ptr<int[]> &histogram);
 };

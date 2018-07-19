@@ -1,42 +1,50 @@
 #include <iostream>
-#include <cstdint>
-#include <memory>
-#include <math.h>
-#include <iostream>
-
-#include "pixel.h"
-#include "mandelbrot.h"
-#include "bitmap.h"
-#include "zoom_list.h"
-#include "fractal_generator.h"
-#include "rgb_color.h"
-
+#include <string>
 using namespace std;
+
+#include "zoom.h"
+#include "fractal_generator.h"
 using namespace zerocoolsoftware;
+
+void run_fractal(string filename, int zoomInTo, zoom *zooms);
 
 int main()
 {
+    string filename = "fractal_bitmap";
+    cout << "Booting up fractal generator..." << endl;
 
-    int height = 600;
-    string filename = "fractal_bitmap.bmp";
 
-    cout << "Booting up..." << endl;
-    cout << "Calculating Fractal iterations..." << endl;
-    fractal_generator fractalGen(800, height);
+    zoom zooms[5] = {
+    zoom(307, 189, 0.1),
+    zoom(169, 433, 0.1),
+    zoom(409, 294, 0.1),
+    zoom(781, 366, 0.1),
+    zoom(81, 320, 0.1)
+    };
 
-    //fractalGen.addZoom(zoom(307, height-189, 0.1));
-    //fractalGen.addZoom(zoom(169, HEIGHT - 433, 0.1));
-    //fractalGen.addZoom(zoom(409, HEIGHT - 294, 0.1));
-    //fractalGen.addZoom(zoom(781, HEIGHT - 366, 0.1));
-    //fractalGen.addZoom(zoom(381, HEIGHT - 320, 0.1));
-    fractalGen.calculateIterations();
+    run_fractal(filename,0, zooms);
 
-    cout << "Drawing Fractal..." << endl;
-    fractalGen.drawFractal();
+    for(int i = 0; i < 1; ++i){
+        string fixed_filename = (filename + "" + std::to_string(i));
+        run_fractal(fixed_filename, (i+1), zooms);
+    }
+}
 
-    cout << "Writing Fractal to " << filename << "..." << endl;
-    fractalGen.writeBitmap(filename);
+void run_fractal(string filename, int zoomInTo, zoom *zooms){
 
-    cout << "Fractal Generation complete!" << endl;
-    return 0;
+    cout << "Generating fractal with "<< zoomInTo << " many zoom(s) : " << endl;
+
+    fractal_generator fractalGen(800, 600);
+
+    for(int i = 0; i < zoomInTo; ++i){
+        fractalGen.addZoom(zooms[i]);
+    }
+
+    fractalGen.addColorRange(0.0, rgb_color(0,   7,   100));
+    fractalGen.addColorRange(0.16, rgb_color(32,  107, 203));
+    fractalGen.addColorRange(0.42, rgb_color(237, 255, 255));
+    fractalGen.addColorRange(0.6425, rgb_color(255, 170, 0));
+    fractalGen.addColorRange(0.8575, rgb_color(0,   2,   0));
+
+    fractalGen.run(filename);
 }

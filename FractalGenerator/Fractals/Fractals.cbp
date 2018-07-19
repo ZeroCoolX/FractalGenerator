@@ -42,6 +42,8 @@
 		<Unit filename="mandelbrot.cpp" />
 		<Unit filename="mandelbrot.h" />
 		<Unit filename="pixel.h" />
+		<Unit filename="rgb_color.cpp" />
+		<Unit filename="rgb_color.h" />
 		<Unit filename="zoom.h" />
 		<Unit filename="zoom_list.cpp" />
 		<Unit filename="zoom_list.h" />
