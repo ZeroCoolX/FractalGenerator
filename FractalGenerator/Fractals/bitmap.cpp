@@ -19,8 +19,10 @@ bool bitmap::createBitmapFile(string fileName)
     bitmap_info_header infoHeader;
     createBitmapHeaders(fileHeader, infoHeader);
 
+
     // write headers and pixels to file
     bool success = writeToFile(fileName, fileHeader, infoHeader);
+
     if(success){
         cout << " Bitmap " << fileName << " successfully written to" << endl;
     }else{
@@ -39,7 +41,6 @@ void bitmap::createBitmapHeaders(bitmap_file_header &fileHeader, bitmap_info_hea
 }
 
 bool bitmap::writeToFile(string filename, bitmap_file_header &fileHeader, bitmap_info_header &infoHeader){
-
     fstream bitmapFile;
     bitmapFile.open(filename, ios::out | ios::binary);
 
@@ -62,7 +63,6 @@ bool bitmap::writeToFile(string filename, bitmap_file_header &fileHeader, bitmap
 void bitmap::setPixel(pixel &p){
     // Retrieve pointer to the whole memory block that represents the screen
     uint8_t * pPixel = _pixels.get();
-
     // Must scale by PIXEL_COLORS (3) because each pixel is 3 bytes
     pPixel += ((p.row * PIXEL_COLORS) * _width) + (p.column * PIXEL_COLORS);
 

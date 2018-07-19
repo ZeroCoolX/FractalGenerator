@@ -36,6 +36,8 @@
 		<Unit filename="bitmap.h" />
 		<Unit filename="bitmap_file_header.h" />
 		<Unit filename="bitmap_info_header.h" />
+		<Unit filename="fractal_generator.cpp" />
+		<Unit filename="fractal_generator.h" />
 		<Unit filename="main.cpp" />
 		<Unit filename="mandelbrot.cpp" />
 		<Unit filename="mandelbrot.h" />
